@@ -82,6 +82,12 @@ body {
   z-index: 0;
   overflow: hidden;
 }
+
+@media (min-width: 769px) {
+  .intro-section__background-div {
+    height: 616px;
+  }
+}
 .dotted-background {
   width: 1500px; /*Seteo valores más grandes que el diseño de figma para que el background */
   height: 950px; /*siga viéndose cuando el width sea entre 375px y el punto de quiebre de 769px*/
@@ -96,6 +102,17 @@ body {
   z-index: 0;
 }
 
+@media (min-width: 769px) {
+  .dotted-background {
+    width: 2000px; /*Seteo valores más grandes que el diseño de figma para tamaños grandes de pantalla */
+    height: 1250px;
+    transform: rotate(-15deg);
+    background-size: 30px 35px; /*La distancia entre puntitos crece un poco*/
+    top: -499.64px;
+    left: -167.59px;
+  }
+}
+
 .header {
   height: 90px;
   width: 100%;
@@ -107,13 +124,40 @@ body {
   z-index: 1;
 }
 
+@media (min-width: 769px) {
+  .header {
+    width: 100%;
+    height: 181px;
+    /*Los porcentajes son en base a las medidas sacadas de figma (padding-left: 80px, padding-right: 103px)
+    con respecto al ancho del diseño (1440px)*/
+    padding: 36px 7.15% 36px 5.55%;
+  }
+}
+
 .header__logo-div {
   width: 54px;
   height: 50px;
+  display: flex;
+  align-items: center;
 }
+@media (min-width: 769px) {
+  .header__logo-div {
+    width: 95px;
+    height: 109px;
+  }
+}
+
 .logo-hernan {
   width: 100%;
   height: 100%;
+}
+@media (min-width: 769px) {
+  /*Agrego .intro-section para que no afecte al logo-hernan del footer*/
+  .intro-section .logo-hernan {
+    /*Para ser de 95px de ancho, el logo tuvo que crecer hasta un 76% del nuevo valor de ancho del contenedor.
+    Aplico la misma proporción para el alto*/
+    height: 76%;
+  }
 }
 .header__menu-div {
   width: 36px;
@@ -131,15 +175,19 @@ body {
 
 .header__nav {
   display: none;
+  width: 428px;
+  height: 28px;
 }
 @media (min-width: 769px) {
   .header__nav {
-    display: inline;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
-
 .header__nav__link {
-  /*Lo completo cuando haga el responsive*/
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .intro-section__bienvenido-div {
@@ -158,9 +206,15 @@ body {
 }
 @media (min-width: 769px) {
   .intro-section__bienvenido-div {
+    height: 435px; /*Los 616px de intro menos el nuevo alto del header 181px*/
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
+    top: 181px;
+    /*Los porcentajes son en base a las medidas sacadas de figma (padding-left: 80px, padding-right: 84px)
+    con respecto al ancho del diseño (1440px)*/
+    padding: 40px 5.83% 0px 5.55%;
+    gap: 20px;
   }
 }
 
@@ -169,9 +223,27 @@ body {
   text-align: center;
   margin: 0;
 }
+@media (min-width: 769px) {
+  .intro-section__bienvenido__mensaje {
+    width: 313px;
+    height: 96px;
+    text-align: left;
+    margin-top: 40px; /*Para alinearlo a la altura del diseño (a 260px del top de intro)*/
+  }
+}
+
 .intro-section__bienvenido__foto {
   width: 318px;
   height: 300px;
+}
+
+@media (min-width: 769px) {
+  .intro-section__bienvenido__foto {
+    align-self: flex-end;
+    min-width: 435px;
+    width: 435px;
+    height: 395px;
+  }
 }
 
 /*-------------------Sección Quien soy-------------------*/
@@ -185,6 +257,20 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+@media (min-width: 769px) {
+  .quien-soy-section {
+    /*Los porcentajes son en base a las medidas sacadas de figma (padding-left: 301px, padding-right: 306px)
+    con respecto al ancho del diseño (1440px)*/
+    padding: 132px 20.9% 169px 21.25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    /*Porcentaje de ancho en base a la medida sacada de figma (90px) con respecto al contenedor (833px)*/
+    gap: 10.8%;
+  }
+}
+
 .quien-soy-section__descripcion-div {
   display: flex;
   flex-direction: column;
@@ -192,26 +278,63 @@ body {
   align-items: center;
   gap: 41px;
 }
+
+@media (min-width: 769px) {
+  .quien-soy-section__descripcion-div {
+    order: 1;
+    /*Porcentaje de ancho en base a la medida sacada de figma (532px) con respecto al ancho del div (833px)*/
+    width: 63.87%;
+    height: 237px;
+    align-items: flex-start;
+    gap: 28px;
+  }
+}
 .quien-soy-section__descripcion-titulo {
   width: 271px;
   height: 44px;
   margin: 0;
   text-align: center;
 }
+@media (min-width: 769px) {
+  .quien-soy-section__descripcion-titulo {
+    text-align: left;
+  }
+}
+
 .quien-soy-section__descripcion-resumen {
   height: 193px;
   text-align: left;
+}
+
+@media (min-width: 769px) {
+  .quien-soy-section__descripcion-resumen {
+    height: 237px;
+    min-height: 237px; /*Defino min-height para que al estirar la pantalla el contenedor conserve su alto*/
+  }
 }
 
 .quien-soy-section__descripcion-logo {
   width: 80px;
   height: 80px;
 }
+
+@media (min-width: 769px) {
+  .quien-soy-section__descripcion-logo {
+    order: 0;
+    /*Porcentaje de ancho en base a la medida sacada de figma (211px) con respecto al ancho del div (833px)*/
+    width: 25.33%;
+    height: 100%; /*Para que el cuadrado crezca en las dos direcciones*/
+    max-width: 211px;
+    max-height: 211px;
+  }
+}
+
 .check {
   width: 100%;
   height: 100%;
 }
 
+/*-------------------Sección Servicios-------------------*/
 .servicios-section {
   width: 100%;
   height: 1375px;
@@ -219,10 +342,26 @@ body {
   padding: 69.76px 52px 66px 52px;
 }
 
+@media (min-width: 769px) {
+  .servicios-section {
+    height: 604px;
+    /*Los porcentajes son en base a las medidas sacadas de figma (padding-left: 80px, padding-right: 81px)
+    con respecto al ancho del diseño (1440px)*/
+    padding: 59px 5.65% 103px 5.55%;
+  }
+}
+
 .servicios-section__titulo {
   height: 55.81px;
   margin: 0 0 43.42px 0;
   text-align: center;
+}
+
+@media (min-width: 769px) {
+  .servicios-section__titulo {
+    height: 56px;
+    margin: 0 0 71px 0;
+  }
 }
 
 .servicios-section__contenedor {
@@ -232,6 +371,12 @@ body {
   align-items: center;
   gap: 104px;
 }
+@media (min-width: 769px) {
+  .servicios-section__contenedor {
+    flex-direction: row;
+  }
+}
+
 .servicios-section__servicio {
   display: flex;
   flex-direction: column;
@@ -239,6 +384,10 @@ body {
   align-items: center;
   width: 100%;
   height: 312px;
+}
+.servicios-section__servicio__logo {
+  width: 130px;
+  height: 130px;
 }
 .servicios-section__subtitulo {
   margin: 0;
@@ -264,12 +413,36 @@ body {
   align-items: center;
   gap: 36px;
 }
+
+@media (min-width: 769px) {
+  .escribime-section {
+    /*Los porcentajes son en base a las medidas sacadas de figma (padding-left: 304px, padding-right: 412px)
+    con respecto al ancho del diseño (1440px). Uso clamp para que los padding tenga un mínimo y un máximo */
+    padding-top: 116px;
+    padding-bottom: 116px;
+    padding-left: clamp(10%, 1vw, 21.11%);
+    padding-right: clamp(10%, 1vw, 28.11%);
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 77px; /*Seteo el gap con valor fijo porque queda mejor visualmente que con porcentajes*/
+  }
+}
 .escribime-section__titulo {
   width: 271px;
   height: 55px;
   margin: 0;
   text-align: center;
 }
+@media (min-width: 769px) {
+  .escribime-section__titulo {
+    height: 55.81px;
+    text-align: right;
+    font-size: 48px;
+    letter-spacing: -1px;
+  }
+}
+
 .escribime-section__form {
   width: 100%;
   height: 428px;
@@ -279,6 +452,12 @@ body {
   grid-template-rows: 69px 27px 69px 21px 137px 60px 45px;
   align-items: flex-start;
 }
+@media (min-width: 769px) {
+  .escribime-section__form {
+    min-width: 376px;
+  }
+}
+
 .escribime-section__form__nombre-div {
   grid-row-start: 1;
   grid-column-start: 1;
@@ -352,15 +531,73 @@ body {
   justify-content: flex-start;
   gap: 85px;
 }
+@media (min-width: 769px) {
+  .footer-section {
+    height: 346px;
+    /*Los porcentajes son en base a las medidas sacadas de figma (padding-left: 80px, padding-right: 215px)
+    con respecto al ancho del diseño (1440px)*/
+    padding: 98px 14.93% 95px 5.55%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.footer-section__background-div {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .footer-section__background-div {
+    width: 100%;
+    height: 346px;
+    position: absolute;
+    /*La suma de alturas de intro, quien-soy, servicios y escribime*/
+    top: 2418px;
+    left: 0px;
+    z-index: 0;
+    overflow: hidden;
+    display: block;
+  }
+}
+@media (min-width: 769px) {
+  /*Agrego .footer-section para que no modifique el fondo de la sección intro*/
+  .footer-section .dotted-background {
+    background-image: radial-gradient(#b9b9b9 1px, transparent 10%);
+    background-color: #dbdbdb;
+  }
+}
+
 .footer-section__logo-div {
   width: 90px;
   height: 104px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
 }
+@media (min-width: 769px) {
+  .footer-section__logo-div {
+    width: 112px;
+    height: 138px;
+    align-items: center;
+  }
+}
+
 .footer-section__contenedor-logo {
   width: 77px;
   height: 71px;
-  margin-bottom: 18px;
 }
+@media (min-width: 769px) {
+  .footer-section__contenedor-logo {
+    width: 112px;
+    height: 103px;
+  }
+}
+
 .footer-section__copyright {
   width: 90px;
   height: 15px;
@@ -368,13 +605,22 @@ body {
   margin-top: 0;
   margin-bottom: 0;
 }
+@media (min-width: 769px) {
+  .footer-section__copyright {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+  }
+}
 
 .footer-section__redes-div {
-  width: 100%;
+  width: 108px;
   height: 138px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-section__redes__instagram {
