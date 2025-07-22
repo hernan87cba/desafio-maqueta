@@ -76,11 +76,12 @@ body {
 .intro-section__background-div {
   width: 100%;
   height: 594px;
+  min-width: 375px;
   position: absolute;
   top: 0px;
   left: 0px;
   z-index: 0;
-  overflow: hidden;
+  overflow: hidden; /*Para esconder las porciones del background de puntitos que quedan fuera del div*/
 }
 
 @media (min-width: 769px) {
@@ -103,7 +104,8 @@ body {
 }
 
 @media (min-width: 769px) {
-  .dotted-background {
+  /*Agrego .intro-section para no afectar al background del footer*/
+  .intro-section .dotted-background {
     width: 2000px; /*Seteo valores más grandes que el diseño de figma para tamaños grandes de pantalla */
     height: 1250px;
     transform: rotate(-15deg);
@@ -116,6 +118,7 @@ body {
 .header {
   height: 90px;
   width: 100%;
+  min-width: 375px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -126,7 +129,6 @@ body {
 
 @media (min-width: 769px) {
   .header {
-    width: 100%;
     height: 181px;
     /*Los porcentajes son en base a las medidas sacadas de figma (padding-left: 80px, padding-right: 103px)
     con respecto al ancho del diseño (1440px)*/
@@ -193,12 +195,13 @@ body {
 .intro-section__bienvenido-div {
   width: 100%;
   height: 526px;
+  min-width: 375px;
   padding: 72px 26px 0 31px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 58px;
+  /* gap: 58px; Al modificar el mensaje de bienvenida del diseño original no hace falta más este gap*/
   position: absolute;
   top: 90px;
   left: 0px;
@@ -222,13 +225,14 @@ body {
   min-height: 96px; /*Defino min-height para que al estirar la pantalla el contenedor conserve su alto*/
   text-align: center;
   margin: 0;
+  /*No limito el ancho con width de 281px porque me gusta más cómo queda el mensaje en una sola línea cuando crece más de 375px*/
 }
 @media (min-width: 769px) {
   .intro-section__bienvenido__mensaje {
     width: 313px;
     height: 96px;
     text-align: left;
-    margin-top: 40px; /*Para alinearlo a la altura del diseño (a 260px del top de intro)*/
+    margin-top: 39px; /*Para alinearlo a la altura del diseño (a 260px del top de intro)*/
   }
 }
 
@@ -304,12 +308,13 @@ body {
 .quien-soy-section__descripcion-resumen {
   height: 193px;
   text-align: left;
+  margin: 0;
 }
 
 @media (min-width: 769px) {
   .quien-soy-section__descripcion-resumen {
-    height: 237px;
-    min-height: 237px; /*Defino min-height para que al estirar la pantalla el contenedor conserve su alto*/
+    min-width: 400px; /*Se lo agrego para que no quede fuera de pantalla entre 769px y 900px aprox */
+    font-size: 24px;
   }
 }
 
@@ -326,6 +331,7 @@ body {
     height: 100%; /*Para que el cuadrado crezca en las dos direcciones*/
     max-width: 211px;
     max-height: 211px;
+    align-self: center;
   }
 }
 
@@ -361,6 +367,8 @@ body {
   .servicios-section__titulo {
     height: 56px;
     margin: 0 0 71px 0;
+    font-size: 48px;
+    letter-spacing: -1px;
   }
 }
 
@@ -386,20 +394,21 @@ body {
   height: 312px;
 }
 .servicios-section__servicio__logo {
-  width: 130px;
-  height: 130px;
+  width: 138px;
+  height: 138px;
 }
 .servicios-section__subtitulo {
   margin: 0;
   text-align: center;
-  height: 28x;
+  height: 28px;
   max-height: 28px; /*Medida para mantener el alto del elemento al expandirse la pantalla*/
 }
 .servicios-section__texto {
   margin: 0;
   text-align: center;
-  height: 115px;
-  max-height: 115px; /*Medida para mantener el alto del elemento al expandirse la pantalla*/
+  /*No le seteo width para que se acomode el párrafo según el ancho del contenedor*/
+  height: 117px;
+  max-height: 117px; /*Medida para mantener el alto del elemento al expandirse la pantalla*/
 }
 
 /*-------------------Sección Escribime-------------------*/
@@ -509,7 +518,7 @@ body {
   color: #141414;
   font-family: "Roboto";
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 100%;
   letter-spacing: 0;
   text-align: center;
@@ -518,6 +527,12 @@ body {
   grid-row-start: 7;
   grid-column-start: 1;
   max-width: 376px;
+}
+
+.escribime-section__form__enviar-btn:hover {
+  background-color: #ffffff;
+  color: #ffd953;
+  border-color: #ffd953;
 }
 
 /*-------------------Sección Footer-------------------*/
@@ -561,10 +576,17 @@ body {
   }
 }
 @media (min-width: 769px) {
-  /*Agrego .footer-section para que no modifique el fondo de la sección intro*/
+  /* Agrego .footer-section para que no afectar al background de la sección intro*/
   .footer-section .dotted-background {
+    width: 2500px;
+    height: 1500px;
     background-image: radial-gradient(#b9b9b9 1px, transparent 10%);
-    background-color: #dbdbdb;
+    background-color: #dbdbdb; /*En figma figura c4c4c4 como el color de fondo en la lista de propiedades, 
+                                 pero si utilizamos un color picker sobre el diseño vemos que es dbdbdb, y se ve mejor*/
+    transform: rotate(-15deg);
+    background-size: 30px 35px;
+    top: -270px;
+    left: -167.59px;
   }
 }
 
@@ -638,6 +660,8 @@ body {
 }
 
 .footer-section__redes__link {
+  cursor: pointer;
+  text-decoration: none;
 }
 .footer-section__redes-div__linkedin {
   width: 100%;
