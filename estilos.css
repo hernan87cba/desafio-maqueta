@@ -1,0 +1,692 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 375px;
+}
+
+/*Seteo las fuentes aparte para tener más prolija cada clase*/
+.font-roboto {
+  font-family: "Roboto";
+}
+.font-open-sans {
+  font-family: "Open Sans";
+}
+.font-roboto,
+.font-open-sans {
+  line-height: 100%;
+}
+.font-weight-700 {
+  font-weight: 700;
+}
+.font-weight-400 {
+  font-weight: 400;
+}
+.font-size-48 {
+  font-size: 48px;
+}
+.font-size-32 {
+  font-size: 32px;
+}
+.font-size-24 {
+  font-size: 24px;
+}
+.font-size-16 {
+  font-size: 16px;
+}
+.font-size-13 {
+  font-size: 13px;
+}
+.font-color-000000 {
+  color: #000000;
+}
+.font-color-fafafa {
+  color: #fafafa;
+}
+.font-color-2c2c2c {
+  color: #2c2c2c;
+}
+.font-letter-spacing-0 {
+  letter-spacing: 0px;
+}
+.font-letter-spacing--1 {
+  letter-spacing: -1px;
+}
+.font-letter-spacing--2 {
+  letter-spacing: -2px;
+}
+.form-text-align-center {
+  text-align: center;
+}
+.form-text-align-left {
+  text-align: left;
+}
+
+/*-------------------Sección Intro-------------------*/
+.intro-section {
+  width: 100%;
+  height: 616px;
+}
+
+.intro-section__background-div {
+  width: 100%;
+  height: 594px;
+  min-width: 375px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+  overflow: hidden; /*Para esconder las porciones del background de puntitos que quedan fuera del div*/
+}
+
+@media (min-width: 769px) {
+  .intro-section__background-div {
+    height: 616px;
+  }
+}
+.dotted-background {
+  width: 1500px; /*Seteo valores más grandes que el diseño de figma para que el background */
+  height: 950px; /*siga viéndose cuando el width sea entre 375px y el punto de quiebre de 769px*/
+  background-image: radial-gradient(#dbdbdb 1px, transparent 10%);
+  background-color: #fff;
+  background-position: 0 0, 50px 50px;
+  background-size: 20px 25px;
+  transform: rotate(-23.25deg);
+  position: relative;
+  top: -241.24px;
+  left: -294.68px;
+  z-index: 0;
+}
+
+@media (min-width: 769px) {
+  /*Agrego .intro-section para no afectar al background del footer*/
+  .intro-section .dotted-background {
+    width: 2000px; /*Seteo valores más grandes que el diseño de figma para tamaños grandes de pantalla */
+    height: 1250px;
+    transform: rotate(-15deg);
+    background-size: 30px 35px; /*La distancia entre puntitos crece un poco*/
+    top: -499.64px;
+    left: -167.59px;
+  }
+}
+
+.header {
+  height: 90px;
+  width: 100%;
+  min-width: 375px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px 18px 17px;
+  position: absolute;
+  z-index: 1;
+}
+
+@media (min-width: 769px) {
+  .header {
+    height: 181px;
+    /*Los porcentajes son en base a las medidas sacadas de figma (padding-left: 80px, padding-right: 103px)
+    con respecto al ancho del diseño (1440px)*/
+    padding: 36px 7.15% 36px 5.55%;
+  }
+}
+
+.header__logo-div {
+  width: 54px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 769px) {
+  .header__logo-div {
+    width: 95px;
+    height: 109px;
+  }
+}
+
+.logo-hernan {
+  width: 100%;
+  height: 100%;
+}
+@media (min-width: 769px) {
+  /*Agrego .intro-section para que no afecte al logo-hernan del footer*/
+  .intro-section .logo-hernan {
+    /*Para ser de 95px de ancho, el logo tuvo que crecer hasta un 76% del nuevo valor de ancho del contenedor.
+    Aplico la misma proporción para el alto*/
+    height: 76%;
+  }
+}
+.header__menu-div {
+  width: 36px;
+  height: 32px;
+}
+@media (min-width: 769px) {
+  .header__menu-div {
+    display: none;
+  }
+}
+.logo-menu {
+  width: 100%;
+  height: 100%;
+}
+
+.header__nav {
+  display: none;
+  width: 428px;
+  height: 28px;
+}
+@media (min-width: 769px) {
+  .header__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.header__nav__link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.intro-section__bienvenido-div {
+  width: 100%;
+  height: 526px;
+  min-width: 375px;
+  padding: 72px 26px 0 31px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* gap: 58px; Al modificar el mensaje de bienvenida del diseño original no hace falta más este gap*/
+  position: absolute;
+  top: 90px;
+  left: 0px;
+  z-index: 1;
+}
+@media (min-width: 769px) {
+  .intro-section__bienvenido-div {
+    height: 435px; /*Los 616px de intro menos el nuevo alto del header 181px*/
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    top: 181px;
+    /*Los porcentajes son en base a las medidas sacadas de figma (padding-left: 80px, padding-right: 84px)
+    con respecto al ancho del diseño (1440px)*/
+    padding: 40px 5.83% 0px 5.55%;
+    gap: 20px;
+  }
+}
+
+.intro-section__bienvenido__mensaje {
+  min-height: 96px; /*Defino min-height para que al estirar la pantalla el contenedor conserve su alto*/
+  text-align: center;
+  margin: 0;
+  /*No limito el ancho con width de 281px porque me gusta más cómo queda el mensaje en una sola línea cuando crece más de 375px*/
+}
+@media (min-width: 769px) {
+  .intro-section__bienvenido__mensaje {
+    width: 313px;
+    height: 96px;
+    text-align: left;
+    margin-top: 39px; /*Para alinearlo a la altura del diseño (a 260px del top de intro)*/
+  }
+}
+
+.intro-section__bienvenido__foto {
+  width: 318px;
+  height: 300px;
+}
+
+@media (min-width: 769px) {
+  .intro-section__bienvenido__foto {
+    align-self: flex-end;
+    min-width: 435px;
+    width: 435px;
+    height: 395px;
+  }
+}
+
+/*-------------------Sección Quien soy-------------------*/
+.quien-soy-section {
+  background-color: #141414;
+  height: 538px;
+  width: 100%;
+  padding: 55px 32px 68px 31px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (min-width: 769px) {
+  .quien-soy-section {
+    /*Los porcentajes son en base a las medidas sacadas de figma (padding-left: 301px, padding-right: 306px)
+    con respecto al ancho del diseño (1440px)*/
+    padding: 132px 20.9% 169px 21.25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    /*Porcentaje de ancho en base a la medida sacada de figma (90px) con respecto al contenedor (833px)*/
+    gap: 10.8%;
+  }
+}
+
+.quien-soy-section__descripcion-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 41px;
+}
+
+@media (min-width: 769px) {
+  .quien-soy-section__descripcion-div {
+    order: 1;
+    /*Porcentaje de ancho en base a la medida sacada de figma (532px) con respecto al ancho del div (833px)*/
+    width: 63.87%;
+    height: 237px;
+    align-items: flex-start;
+    gap: 28px;
+  }
+}
+.quien-soy-section__descripcion-titulo {
+  width: 271px;
+  height: 44px;
+  margin: 0;
+  text-align: center;
+}
+@media (min-width: 769px) {
+  .quien-soy-section__descripcion-titulo {
+    text-align: left;
+  }
+}
+
+.quien-soy-section__descripcion-resumen {
+  height: 193px;
+  text-align: left;
+  margin: 0;
+}
+
+@media (min-width: 769px) {
+  .quien-soy-section__descripcion-resumen {
+    min-width: 400px; /*Se lo agrego para que no quede fuera de pantalla entre 769px y 900px aprox */
+    font-size: 24px;
+  }
+}
+
+.quien-soy-section__descripcion-logo {
+  width: 80px;
+  height: 80px;
+}
+
+@media (min-width: 769px) {
+  .quien-soy-section__descripcion-logo {
+    order: 0;
+    /*Porcentaje de ancho en base a la medida sacada de figma (211px) con respecto al ancho del div (833px)*/
+    width: 25.33%;
+    height: 100%; /*Para que el cuadrado crezca en las dos direcciones*/
+    max-width: 211px;
+    max-height: 211px;
+    align-self: center;
+  }
+}
+
+.check {
+  width: 100%;
+  height: 100%;
+}
+
+/*-------------------Sección Servicios-------------------*/
+.servicios-section {
+  width: 100%;
+  height: 1375px;
+  background-color: #fafafa;
+  padding: 69.76px 52px 66px 52px;
+}
+
+@media (min-width: 769px) {
+  .servicios-section {
+    height: 604px;
+    /*Los porcentajes son en base a las medidas sacadas de figma (padding-left: 80px, padding-right: 81px)
+    con respecto al ancho del diseño (1440px)*/
+    padding: 59px 5.65% 103px 5.55%;
+  }
+}
+
+.servicios-section__titulo {
+  height: 55.81px;
+  margin: 0 0 43.42px 0;
+  text-align: center;
+}
+
+@media (min-width: 769px) {
+  .servicios-section__titulo {
+    height: 56px;
+    margin: 0 0 71px 0;
+    font-size: 48px;
+    letter-spacing: -1px;
+  }
+}
+
+.servicios-section__contenedor {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 104px;
+}
+@media (min-width: 769px) {
+  .servicios-section__contenedor {
+    flex-direction: row;
+  }
+}
+
+.servicios-section__servicio {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 312px;
+}
+.servicios-section__servicio__logo {
+  width: 138px;
+  height: 138px;
+}
+.servicios-section__subtitulo {
+  margin: 0;
+  text-align: center;
+  height: 28px;
+  max-height: 28px; /*Medida para mantener el alto del elemento al expandirse la pantalla*/
+}
+.servicios-section__texto {
+  margin: 0;
+  text-align: center;
+  /*No le seteo width para que se acomode el párrafo según el ancho del contenedor*/
+  height: 117px;
+  max-height: 117px; /*Medida para mantener el alto del elemento al expandirse la pantalla*/
+}
+
+/*-------------------Sección Escribime-------------------*/
+.escribime-section {
+  background-color: #141414;
+  width: 100%;
+  height: 660px;
+  padding: 70px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}
+
+@media (min-width: 769px) {
+  .escribime-section {
+    /*Los porcentajes son en base a las medidas sacadas de figma (padding-left: 304px, padding-right: 412px)
+    con respecto al ancho del diseño (1440px). Uso clamp para que los padding tenga un mínimo y un máximo */
+    padding-top: 116px;
+    padding-bottom: 116px;
+    padding-left: clamp(10%, 1vw, 21.11%);
+    padding-right: clamp(10%, 1vw, 28.11%);
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 77px; /*Seteo el gap con valor fijo porque queda mejor visualmente que con porcentajes*/
+  }
+}
+.escribime-section__titulo {
+  width: 271px;
+  height: 55px;
+  margin: 0;
+  text-align: center;
+}
+@media (min-width: 769px) {
+  .escribime-section__titulo {
+    height: 55.81px;
+    text-align: right;
+    font-size: 48px;
+    letter-spacing: -1px;
+  }
+}
+
+.escribime-section__form {
+  width: 100%;
+  height: 428px;
+  max-width: 376px;
+  display: grid; /*Elijo grid sólo para practicar, lo podría haber hecho con flex*/
+  grid-template-columns: 1fr;
+  grid-template-rows: 69px 27px 69px 21px 137px 60px 45px;
+  align-items: flex-start;
+}
+@media (min-width: 769px) {
+  .escribime-section__form {
+    min-width: 376px;
+  }
+}
+
+.escribime-section__form__nombre-div {
+  grid-row-start: 1;
+  grid-column-start: 1;
+}
+
+.escribime-section__form__label {
+  display: inline-block; /*Para poder agregar el margin-bottom*/
+  height: 15px;
+  margin-bottom: 9px;
+  text-align: left;
+}
+.escribime-section__form__nombre {
+  width: 100%;
+  height: 45px;
+  border: solid 3px;
+  border-color: #2c2c2c;
+  border-radius: 4px;
+}
+
+.escribime-section__form__email-div {
+  grid-row-start: 3;
+  grid-column-start: 1;
+}
+.escribime-section__form__email {
+  width: 100%;
+  height: 45px;
+  border: solid 3px;
+  border-color: #2c2c2c;
+  border-radius: 4px;
+}
+
+.escribime-section__form__mensaje-div {
+  grid-row-start: 5;
+  grid-column-start: 1;
+}
+
+.escribime-section__form__mensaje {
+  width: 100%;
+  height: 113px;
+  border: solid 3px;
+  border-color: #2c2c2c;
+  resize: none;
+  border-radius: 4px;
+}
+.escribime-section__form__enviar-btn {
+  width: 100%;
+  height: 45px;
+  background-color: #ffd953;
+  color: #141414;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
+  border: solid;
+  border-radius: 4px;
+  grid-row-start: 7;
+  grid-column-start: 1;
+  max-width: 376px;
+}
+
+.escribime-section__form__enviar-btn:hover {
+  background-color: #ffffff;
+  color: #ffd953;
+  border-color: #ffd953;
+}
+
+/*-------------------Sección Footer-------------------*/
+.footer-section {
+  background-color: #dbdbdb;
+  width: 100%;
+  height: 493px;
+  padding: 53px 248px 113px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 85px;
+}
+@media (min-width: 769px) {
+  .footer-section {
+    height: 346px;
+    /*Los porcentajes son en base a las medidas sacadas de figma (padding-left: 80px, padding-right: 215px)
+    con respecto al ancho del diseño (1440px)*/
+    padding: 98px 14.93% 95px 5.55%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.footer-section__background-div {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .footer-section__background-div {
+    width: 100%;
+    height: 346px;
+    position: absolute;
+    /*La suma de alturas de intro, quien-soy, servicios y escribime*/
+    top: 2418px;
+    left: 0px;
+    z-index: 0;
+    overflow: hidden;
+    display: block;
+  }
+}
+@media (min-width: 769px) {
+  /* Agrego .footer-section para que no afectar al background de la sección intro*/
+  .footer-section .dotted-background {
+    width: 2500px;
+    height: 1500px;
+    background-image: radial-gradient(#b9b9b9 1px, transparent 10%);
+    background-color: #dbdbdb; /*En figma figura c4c4c4 como el color de fondo en la lista de propiedades, 
+                                 pero si utilizamos un color picker sobre el diseño vemos que es dbdbdb, y se ve mejor*/
+    transform: rotate(-15deg);
+    background-size: 30px 35px;
+    top: -270px;
+    left: -167.59px;
+  }
+}
+
+.footer-section__logo-div {
+  width: 90px;
+  height: 104px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+}
+@media (min-width: 769px) {
+  .footer-section__logo-div {
+    width: 112px;
+    height: 138px;
+    align-items: center;
+  }
+}
+
+.footer-section__contenedor-logo {
+  width: 77px;
+  height: 71px;
+}
+@media (min-width: 769px) {
+  .footer-section__contenedor-logo {
+    width: 112px;
+    height: 103px;
+  }
+}
+
+.footer-section__copyright {
+  width: 90px;
+  height: 15px;
+  margin-left: 4px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+@media (min-width: 769px) {
+  .footer-section__copyright {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+.footer-section__redes-div {
+  width: 108px;
+  height: 138px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-section__redes__instagram {
+  width: 100%;
+  height: 27px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 29px 3px;
+}
+.footer-section__redes__instagram__logo {
+  width: 27px;
+  height: 27px;
+}
+
+.footer-section__redes__link {
+  cursor: pointer;
+  text-decoration: none;
+}
+.footer-section__redes-div__linkedin {
+  width: 100%;
+  height: 28px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 25px 4px;
+}
+.footer-section__redes__linkedin__logo {
+  width: 28px;
+  height: 28px;
+}
+
+.footer-section__redes-div__github {
+  width: 100%;
+  height: 29px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  margin: 0 0 0 5px;
+}
+.footer-section__redes__github__logo {
+  width: 29px;
+  height: 29px;
+}
